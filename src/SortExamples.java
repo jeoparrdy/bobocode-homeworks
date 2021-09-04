@@ -2,11 +2,15 @@ public class SortExamples {
 
     public static void main(String[] args) {
         int [] array ={12,17,5,6,3,3,19,58,42,78,34,23,66};
-        divideInpArray(array);
+        //divideInpArray(array);
+        printArray(array);
+        insertionSort(array);
         printArray(array);
     }
 
     private static void printArray(int[] array) {
+
+        System.out.println();
         for (int element: array) {
             System.out.print(element + " ");
         }
@@ -51,8 +55,18 @@ public class SortExamples {
         while (cursorR < rightSubArray.length){
             result[cursorRes++] = rightSubArray[cursorR++];
         }
+    }
 
+    public static void insertionSort(int[] array){
 
-
+        for (int i = 1; i < array.length; i++) {
+            int current = array[i];
+            int j = i - 1;
+            while(j >= 0 && current < array[j]){
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = current;
+        }
     }
 }
